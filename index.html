@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watch Now</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="topbar__title">HEALTH NEWS</div>
+    </div>
+  </header>
+
+  <!-- AVISO COM DATA DINÂMICA -->
+  <div class="notice">
+    <span class="notice__text">
+      Watch the presentation below until
+      <mark class="notice__date" id="expiry-date">--/--/----</mark>,
+      before it goes offline
+    </span>
+  </div>
+
+  <!-- VSL -->
+   <style> 
+       .esconder { display: none; } 
+   </style> 
+   <script> 
+       var delaySeconds = 1560; 
+       var player = document.querySelector("vturb-smartplayer"); 
+       player.addEventListener("player:ready", function() { 
+           player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true }); 
+       }); 
+   </script>
+  <main class="container">
+    <section class="vsl">
+      <!-- COLE SEU PLAYER AQUI (iframe, script do player, etc.) -->
+      <!-- Exemplo de placeholder (remova quando colar sua VSL): -->
+      <vturb-smartplayer id="vid-68db29eaf7f0e9b5fd729f36" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/7697f7d2-26b9-4760-ba3d-6e55bb6ac8c1/players/68db29eaf7f0e9b5fd729f36/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+      <!-- FIM DO PLACEHOLDER -->
+    </section>
+  </main>
+
+  <!-- SCRIPT: coloca a data de HOJE no formato DD/MM/AAAA -->
+  <script>
+    (function setToday() {
+      const el = document.getElementById('expiry-date');
+      const now = new Date();
+      const dd = String(now.getDate()).padStart(2, '0');
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const yyyy = now.getFullYear();
+      el.textContent = `${dd}/${mm}/${yyyy}`;
+    })();
+  </script>
+
+<section id="quiz-offer" class="qo esconder">
+  <div class="qo__wrap">
+    <!-- Headline -->
+    <h2 class="qo__title">Discover Your Perfect <span>Silenzin</span> Formula</h2>
+    <p class="qo__sub">
+      Complete our quick form to provide essential information, ensuring the
+      <strong>Silenzin</strong> formula is <u>perfectly</u> tailored to your body's needs.
+    </p>
+
+    <!-- ========== QUIZ STEPS (substituímos pelas suas perguntas depois) ========== -->
+    <div class="qo__steps">
+
+      <!-- Step 1 -->
+      <div class="qo-step is-active" data-step="1">
+        <h3 class="qo-step__title">Age</h3>
+        <div class="qo-step__btns">
+          <button class="qo-btn" data-next>Below 30</button>
+          <button class="qo-btn" data-next>30-50</button>
+          <button class="qo-btn is-mute" data-next>Above 50</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="qo-step" data-step="2">
+        <h3 class="qo-step__title">Weight</h3>
+        <div class="qo-step__btns">
+          <button class="qo-btn" data-next>Under 132 lbs</button>
+          <button class="qo-btn" data-next>132-176 lbs</button>
+          <button class="qo-btn is-mute" data-next>Over 176 lbs</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="qo-step" data-step="3">
+        <h3 class="qo-step__title">Symptom duration</h3>
+        <div class="qo-step__btns">
+          <button class="qo-btn" data-next>Less than 2 months</button>
+          <button class="qo-btn" data-next>2 months to 1 year</button>
+          <button class="qo-btn is-mute" data-next>More than 1 year</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="qo-step" data-step="4">
+        <h3 class="qo-step__title">Type of sound experienced</h3>
+        <div class="qo-step__btns">
+          <button class="qo-btn" data-next>Ringing or buzzing</button>
+          <button class="qo-btn" data-next>Humming or clicking</button>
+          <button class="qo-btn is-mute" data-next>Whistling or roaring</button>
+          <button class="qo-btn" data-next>Other</button>
+        </div>
+      </div>
+
+      <!-- Loading / preparing -->
+      <div class="qo-step" data-step="prep" aria-hidden="true">
+        <p class="qo__prep-text">
+          Please wait while we prepare the <strong>ideal formula</strong> for you
+        </p>
+        <div class="qo__bar">
+          <div class="qo__bar-fill" style="width:0%"></div>
+        </div>
+        <div class="qo__timer">Time remaining: <span class="qo__time">00:05</span> seconds</div>
+      </div>
+    </div>
+
+    <!-- ========== OFFER (aparece depois do “prep”) ========== -->
+   <div class="qo-offer" hidden>
+  <div class="offer-stack">
+
+    <!-- CARD DESTACADO -->
+    <article class="offer-card is-featured">
+      <div class="offer-head">
+        <span class="offer-badge">Best Value</span>
+      </div>
+
+      <div class="offer-top">
+        <div class="offer-supply">
+          <div class="offer-supply-title">6 BOTTLES</div>
+          <div class="offer-supply-sub">180 DAY SUPPLY</div>
+        </div>
+
+        <div class="offer-price">
+          <span class="offer-price-currency">$</span>
+          <span class="offer-price-num">17</span>
+          <span class="offer-price-sub">PER BOTTLE</span>
+        </div>
+      </div>
+
+      <div class="offer-product">
+        <img src="/images/6bottles.webp" alt="6 bottles">
+      </div>
+
+      <ul class="offer-pills">
+        <li><span>YOU SAVE $500!</span></li>
+        <li><span>BIGGEST DISCOUNT</span></li>
+        <li><span>90 DAYS GUARANTEE</span></li>
+      </ul>
+
+      <a href="https://strong-men.mycartpanda.com/checkout/198183050:1" class="offer-cta is-featured">🛒&nbsp;&nbsp;BUY NOW</a>
+
+      <div class="offer-total">
+        Total: <s>$599</s> <strong>$99</strong> · <b>FREE SHIPPING</b>
+      </div>
+
+      <div class="offer-payments">
+        <img src="/images/cards.webp" alt="Payments">
+      </div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="offer-card">
+      <div class="offer-head">
+        <span class="offer-badge is-muted">Most Popular</span>
+      </div>
+
+      <div class="offer-top">
+        <div class="offer-supply">
+          <div class="offer-supply-title">3 BOTTLES</div>
+          <div class="offer-supply-sub">90 DAY SUPPLY</div>
+        </div>
+
+        <div class="offer-price">
+          <span class="offer-price-currency">$</span>
+          <span class="offer-price-num">23</span>
+          <span class="offer-price-sub">PER BOTTLE</span>
+        </div>
+      </div>
+
+      <div class="offer-product">
+        <img src="/images/3bottles.webp" alt="3 bottles">
+      </div>
+
+      <ul class="offer-pills">
+        <li><span>YOU SAVE $230!</span></li>
+        <li><span>90 DAYS GUARANTEE</span></li>
+      </ul>
+
+      <a href="https://strong-men.mycartpanda.com/checkout/198183049:1" class="offer-cta">🛒&nbsp;&nbsp;BUY NOW</a>
+
+      <div class="offer-total">
+        Total: <s>$299</s> <strong>$69</strong> · <b>FREE SHIPPING</b>
+      </div>
+
+      <div class="offer-payments">
+        <img src="/images/cards.webp" alt="Payments">
+      </div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="offer-card">
+      <div class="offer-head">
+        <span class="offer-badge is-muted">Basic</span>
+      </div>
+
+      <div class="offer-top">
+        <div class="offer-supply">
+          <div class="offer-supply-title">2 BOTTLES</div>
+          <div class="offer-supply-sub">60 DAY SUPPLY</div>
+        </div>
+
+        <div class="offer-price">
+          <span class="offer-price-currency">$</span>
+          <span class="offer-price-num">25</span>
+          <span class="offer-price-sub">PER BOTTLE</span>
+        </div>
+      </div>
+
+      <div class="offer-product">
+        <img src="/images/2bottles.webp" alt="2 bottles">
+      </div>
+
+      <ul class="offer-pills">
+        <li><span>YOU SAVE $150!</span></li>
+        <li><span>60 DAYS GUARANTEE</span></li>
+      </ul>
+
+      <a href="https://strong-men.mycartpanda.com/checkout/198183048:1" class="offer-cta">🛒&nbsp;&nbsp;BUY NOW</a>
+
+      <div class="offer-total">
+        Total: <s>$199</s> <strong>$49</strong> · <b>+ 9.99 SHIPPING</b>
+      </div>
+
+      <div class="offer-payments">
+        <img src="/images/cards.webp" alt="Payments">
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- Barra de escassez -->
+<div class="qo-stock" hidden>
+  <p>Only <strong>41</strong> bottles left</p>
+  <div class="qo-stock__bar">
+    <div class="qo-stock__fill" style="width:87%"></div>
+  </div>
+  <div class="qo-stock__label">Low stock!</div>
+</div>
+
+</section>
+
+
+<script>
+  // Fluxo do quiz + transição para oferta
+  document.addEventListener('DOMContentLoaded', function () {
+    const root  = document.getElementById('quiz-offer');
+    if (!root) { console.warn('[QUIZ] #quiz-offer não encontrado'); return; }
+
+    const steps = Array.from(root.querySelectorAll('.qo-step'));
+    const prep  = root.querySelector('[data-step="prep"]');
+    const offer = root.querySelector('.qo-offer');
+
+    // Garante que o primeiro passo esteja ativo
+    if (!root.querySelector('.qo-step.is-active') && steps.length) {
+      steps[0].classList.add('is-active');
+    }
+
+    function show(stepEl){
+      steps.forEach(s => s.classList.remove('is-active'));
+      if (stepEl) stepEl.classList.add('is-active');
+    }
+
+    // Adiciona listener em TODOS os botões com data-next
+    const nextButtons = root.querySelectorAll('[data-next]');
+    nextButtons.forEach(btn => {
+      btn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+
+        const current = ev.target.closest('.qo-step');
+        if (!current) return;
+
+        const idx  = steps.indexOf(current);
+        const next = steps[idx + 1];
+
+        // Se não há próximo, ou o próximo é a tela de preparo → vai para preparo
+        if (!next || next === prep) {
+          show(prep);
+          runPreparing();
+        } else {
+          show(next);
+        }
+      });
+    });
+
+    function runPreparing() {
+      if (!prep) return;
+      const fill   = prep.querySelector('.qo__bar-fill');
+      const timeEl = prep.querySelector('.qo__time');
+
+      const total = 5; // segundos
+      let   t     = total;
+
+      // reset da UI
+      fill.style.width = '0%';
+      timeEl.textContent = `00:0${t}`;
+
+      const timer = setInterval(() => {
+        t--;
+        timeEl.textContent = `00:0${Math.max(t,0)}`;
+        const pct = ((total - t) / total) * 100;
+        fill.style.width = Math.min(pct, 100) + '%';
+
+       if (t <= 0) {
+  clearInterval(timer);
+  // esconde passos
+  show(null);
+
+  // >>> MUDA TÍTULO E SUBTÍTULO AGORA <<<
+  const titleEl = root.querySelector('.qo__title');
+  const subEl   = root.querySelector('.qo__sub');
+  if (titleEl) titleEl.textContent = 'Your Exclusive Formula is Ready!';
+  if (subEl) {
+    subEl.innerHTML =
+      '<span style="color:#1c8a53;font-weight:900">Claim Your Discounted Custom Silenzin Below</span><br>' +
+      '<em style="color:#c63030;font-weight:900;font-style:normal">While Supplies Last</em>';
+  }
+
+  // mostra a oferta
+  if (offer) offer.hidden = false;
+
+  // (se usar a barra de estoque oculta)
+  const stock = root.querySelector('.qo-stock');
+  if (stock) stock.hidden = false;
+
+  // rola para a oferta (opcional)
+  root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
+      }, 1000);
+    }
+  });
+</script>
+
+<section class="refs">
+  <div class="container">
+    <h3 class="refs__title">Scientific References</h3>
+
+    <figure class="refs__figure">
+      <!-- troque o src pela sua imagem única -->
+      <img src="/images/science.webp"
+           alt="Scientific References logos" class="refs__img">
+    </figure>
+  </div>
+</section>
+
+<!-- ====== Seção Comentários ====== -->
+<!-- ====== COMMENTS (11 itens) ====== -->
+<section class="fb-comments">
+  <div class="container">
+
+    <!-- 1) Meredith Fields (post principal) -->
+    <div class="comment">
+      <img src="images/01.webp" alt="Meredith Fields" class="avatar">
+      <div class="bubble">
+        <div class="name">Meredith Fields <span class="verb">Said:</span></div>
+        <div class="text">
+          My doctor couldn’t believe it. After just 10 days, that constant ringing in my ears reduced so much
+          I thought it was a miracle. He even asked me to explain what I did because he’s never seen anything work this fast.
+        </div>
+        <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">8 · 16 m</span></div>
+
+        <!-- replies thread -->
+        <div class="thread">
+          <!-- 2) Mike Adams (reply) -->
+          <div class="comment reply">
+            <img src="images/02.webp" alt="Mike Adams" class="avatar">
+            <div class="bubble">
+              <div class="name">Mike Adams <span class="verb">Replied:</span></div>
+              <div class="text">Same here! My doctor thought I was imagining it 🤯. This method is unbelievable.</div>
+              <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">2 · 12 m</span></div>
+            </div>
+          </div>
+
+          <!-- 3) Meredith (reply curto) -->
+          <div class="comment reply">
+            <img src="images/01.webp" alt="Meredith Fields" class="avatar">
+            <div class="bubble">
+              <div class="name">Meredith Fields <span class="verb">Said:</span></div>
+              <div class="text">Exactly!!</div>
+              <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">2 · 4 m</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4) Jessica Miller (post principal) -->
+    <div class="comment">
+      <img src="images/03.png" alt="Jessica Miller" class="avatar">
+      <div class="bubble">
+        <div class="name">Jessica Miller <span class="verb">Said:</span></div>
+        <div class="text">
+          I’ve been doing this trick for a little over a week, and that unbearable noise has already been cut in half.
+          I can finally sleep peacefully again. Thank you for sharing this without asking for anything in return. ❤️
+        </div>
+        <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">11 · 30 m</span></div>
+      </div>
+    </div>
+
+    <!-- 5) Mark Wheeler (post principal) -->
+    <div class="comment">
+      <img src="images/04.webp" alt="Mark Wheeler" class="avatar">
+      <div class="bubble">
+        <div class="name">Mark Wheeler <span class="verb">Replied:</span></div>
+        <div class="text">
+          Does anyone know if this really works? I’ve tried everything to get rid of this ringing, and I’m getting desperate
+        </div>
+        <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">8 · 1 h</span></div>
+
+        <!-- replies thread -->
+        <div class="thread">
+          <!-- 6) Lisa Taylor (reply) -->
+          <div class="comment reply">
+            <img src="images/05.png" alt="Lisa Taylor" class="avatar">
+            <div class="bubble">
+              <div class="name">Lisa Taylor <span class="verb">Replied:</span></div>
+              <div class="text">
+                Mark, I started 10 days ago, and for the first time in years, I had an entire day without that awful sound.
+                You should definitely try it!
+              </div>
+              <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">3 · 21 m</span></div>
+            </div>
+          </div>
+
+          <!-- 7) Mark Wheeler (agradece) -->
+          <div class="comment reply">
+            <img src="images/04.webp" alt="Mark Wheeler" class="avatar">
+            <div class="bubble">
+              <div class="name">Mark Wheeler <span class="verb">Replied:</span></div>
+              <div class="text">Thanks, Lisa! I’m getting everything I need now. Fingers crossed!</div>
+              <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">2 · 8 m</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8) Natalie Green (post principal) -->
+    <div class="comment">
+      <img src="images/06.png" alt="Natalie Green" class="avatar">
+      <div class="bubble">
+        <div class="name">Natalie Green <span class="verb">Said:</span></div>
+        <div class="text">
+          I found this video after praying for an answer. It’s only been 5 days, but I already feel like my head is lighter,
+          and the ringing isn’t driving me crazy anymore
+        </div>
+        <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">22 · 1 h</span></div>
+      </div>
+    </div>
+
+    <!-- 9) Thomas Cooper (post principal) -->
+    <div class="comment">
+      <img src="images/07.webp" alt="Thomas Cooper" class="avatar">
+      <div class="bubble">
+        <div class="name">Thomas Cooper <span class="verb">Said:</span></div>
+        <div class="text">
+          This is the most honest and well-explained solution I’ve seen for tinnitus. Thank you for helping people without
+          charging anything 👏👏
+        </div>
+        <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">13 · 2 h</span></div>
+
+        <!-- replies thread -->
+        <div class="thread">
+          <!-- 10) Mary Wilson (reply) -->
+          <div class="comment reply">
+            <img src="images/08.png" alt="Mary Wilson" class="avatar">
+            <div class="bubble">
+              <div class="name">Mary Wilson <span class="verb">Replied:</span></div>
+              <div class="text">Totally agree, Thomas. It’s rare to find someone who actually cares like this</div>
+              <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">4 · 1 h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11) John Parker (post principal) -->
+    <div class="comment">
+      <img src="images/09.webp" alt="John Parker" class="avatar">
+      <div class="bubble">
+        <div class="name">John Parker <span class="verb">Said:</span></div>
+        <div class="text">
+          After 3 weeks, the ringing in my ears has decreased so much that I barely notice it anymore. Plus, I’m sleeping
+          better and feeling more energized. You’re the best Doctor, may God bless you 🙏
+        </div>
+        <div class="footer"><span class="action">Like · Reply</span> · <span class="meta">7 · 2 h</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- você continua duplicando para Mark, Lisa, Natalie, Thomas, etc... -->
+
+  </div>
+</section>
+
+
+
+</body>
+
+
+
+</html>
